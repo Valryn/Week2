@@ -13,11 +13,11 @@ def findsmallest(lst, k):
     sortedlist = list(nodups)
     sortedlist.sort()
 
-    return sortedlist[k]
+    return sortedlist[k - 1]
 
 
-print(findsmallest(input, 2))
-
+if findsmallest(input, 2) == 4:
+    print("Found the 2nd smallest element: 4!")
 
 """
 Question 5:

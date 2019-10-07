@@ -1,19 +1,20 @@
 import timeit
 
+# Establish test dictionaries and lists
 testdict = {}
-
 for k in range(99):
     testdict[k] = 1
 
 lst = [1] * 100
 
-
 def dictionaryget():
+    """Get each value in testdict"""
     for i in range(99):
         x = testdict.get(i)
 
 
 def dictionaryget_timer():
+    """Create a timer to evaluate dictionaryget"""
     setup_code = """
 from __main__ import dictionaryget
 """
@@ -28,11 +29,13 @@ dictionaryget()
 
 
 def dictionaryset():
+    """Set each value in testdict"""
     for i in range(99):
         x = testdict[i]
 
 
 def dictionaryset_timer():
+    """Create a timer to evaluate dictionaryset"""
     setup_code = """
 from __main__ import dictionaryset
 """
@@ -47,11 +50,13 @@ dictionaryset()
 
 
 def listindex():
+    """Index each spot in lst"""
     for i in range(99):
         x = lst[i]
 
 
 def listindex_timer():
+    """Create a timer to evaluate listindex"""
     setup_code = """
 from __main__ import listindex
 """
@@ -66,12 +71,15 @@ listindex()
 
 
 def listdel():
-    testlist = [1] * 100
-    for i in range(99):
-        del testlist[1]
+    """Deletes 100 values from testlist"""
+    deletelist = [1] * 100
+
+    for i in range(100):
+        del deletelist[0]
 
 
 def listdel_timer():
+    """Create a timer to evaluate listdel"""
     setup_code = """
 from __main__ import listdel
     """
@@ -85,16 +93,17 @@ listdel()
 
 
 def dictdel():
-    deldict = {}
+    """Deletes 100 values from deletedict"""
+    deletedict = {}
+    for j in range(99):
+        deletedict[j] = 1
 
     for i in range(99):
-        deldict[i] = 1
-
-    for i in range(99):
-        del deldict[i]
+        del deletedict[i]
 
 
 def dictdel_timer():
+    """Create a timer to evaluate dictdel"""
     setup_code = """
 from __main__ import dictdel
     """
@@ -108,6 +117,7 @@ dictdel()
 
 
 if __name__ == "__main__":
+    # Run each timer for evaluation/comparison
     listindex_timer()
     dictionaryget_timer()
     dictionaryset_timer()

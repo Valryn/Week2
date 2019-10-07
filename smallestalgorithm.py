@@ -2,10 +2,11 @@
 Question 4:
 """
 
-input = [4, 7, 2, 5]
-
+input1 = [4, 7, 2, 5]
+input2 = [100, 26, 18, 402, 1000200, 67, 2000]
 
 def findsmallest(lst, k):
+    """Finds the k'th smallest number in a given list"""
     # Remove duplicates
     nodups = set(lst)
 
@@ -15,9 +16,11 @@ def findsmallest(lst, k):
 
     return sortedlist[k - 1]
 
-
-if findsmallest(input, 2) == 4:
+# Print results if known element is found correctly.
+if findsmallest(input1, 2) == 4:
     print("Found the 2nd smallest element: 4!")
+if findsmallest(input2, 3) == 67:
+    print("Found the 3rd smallest element in input2: 67!")
 
 """
 Question 5:
